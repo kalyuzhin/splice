@@ -1,2 +1,10 @@
 fastapi[standard]
-
+python-dotenv
+pydantic
+pydantic-settings
+psycopg2-binary
+sqlalchemy
+alembic
+asyncpg
+sqlmodel
+uvicorn
