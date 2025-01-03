@@ -8,3 +8,8 @@ alembic
 asyncpg
 sqlmodel
 uvicorn
+pyjwt
+bcrypt
+httpx
+passlib[bcrypt]
+greenlet
