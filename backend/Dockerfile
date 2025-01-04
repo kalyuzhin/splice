@@ -1,8 +1,8 @@
 FROM python:3.12-slim
-WORKDIR app/
-COPY ./requirements.txt /app/
+WORKDIR backend/
+COPY ./requirements.txt /backend/
 RUN pip3 install -U pip && pip3 install -Ur requirements.txt
-COPY . /app/
+COPY . /backend/
 EXPOSE 8080
 
-#CMD ["uvicorn","--reload",""]
+CMD ["scripts/startup.sh"]

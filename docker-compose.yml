@@ -1,0 +1,27 @@
+services:
+  backend:
+    container_name: backend
+    build: backend/
+    env_file:
+      backend/.env
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+  db:
+    container_name: db
+    image: postgres:17
+    env_file:
+      backend/.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+#    healthcheck:
+#      test: [ "CMD", "pg_isready", "-U", "db", "-d", "splice"]
+#      interval: 10s
+#      retries: 5
+#    restart: always
+
+volumes:
+  postgres_data: { }

@@ -13,3 +13,4 @@ bcrypt
 httpx
 passlib[bcrypt]
 greenlet
+sqlalchemy[asyncio]

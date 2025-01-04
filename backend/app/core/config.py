@@ -35,7 +35,10 @@ class Settings(BaseSettings):
         #     port=self.POSTGRES_PORT,
         #     path=self.POSTGRES_DB,
         # )
-        return f"postgresql+asyncpg://{self.POSTGRES_USER}{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        return (
+            f"postgresql+asyncpg://{self.POSTGRES_USER}"
+            f"{f':{self.POSTGRES_PASSWORD}' if len(self.POSTGRES_PASSWORD) > 0 else ''}@{self.POSTGRES_HOST}:"
+            f"{self.POSTGRES_PORT}/{self.POSTGRES_DB}")
 
 
 settings = Settings()
