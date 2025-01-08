@@ -6,9 +6,13 @@ from app import crud
 
 router = APIRouter(prefix='/users', tags=['users'])
 
-
-@router.post('/', response_model=UserPublic)
-async def create_user(user_create: CreateUser, session: SessionDep):
+@router.post('/', response_model=UserPublic, summary='Главная страница')
+async def create_user(
+    user_create: CreateUser,
+    session: SessionDep
+) -> UserPublic:
+    
     created_user = await crud.create_user(session, user_create)
+    
     return created_user
     # return created_user

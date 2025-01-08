@@ -6,3 +6,5 @@ bin/
 .env
 __pycache__
 
+
+.fake
